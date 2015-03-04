@@ -1,0 +1,23 @@
+<%= image_tag "hill.svg", height: '50', width: '50' %>
+<h1>Your Summits</h1>
+<br>
+<%= link_to new_goal_path, class: "btn btn-primary" do %>
+  <h4><i class="fa fa-plus-circle"></i> Add New Summit</h4>
+<% end %>
+
+<hr>
+
+<% if !@daily_goals.empty? %>
+  <%= render 'index_panel_heading', schedule: "daily" %>
+  <%= render 'index_panel', goals: @daily_goals %>
+<% end %>
+
+<% if !@weekly_goals.empty? %>
+  <%= render 'index_panel_heading', schedule: "weekly" %>
+  <%= render 'index_panel', goals: @weekly_goals %>
+<% end %>
+
+<% if !@biweekly_goals.empty? %>
+  <%= render 'index_panel_heading', schedule: "biweekly" %>
+  <%= render 'index_panel', goals: @biweekly_goals %>
+<% end %>

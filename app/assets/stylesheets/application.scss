@@ -1,0 +1,351 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require selectize
+ *= require selectize.default
+*= require_tree .
+*= require_self
+*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+/*
+* Globals
+*/
+
+h1, h2, h3, h4, h5, h6 {
+  // text-shadow: none;
+  margin-top: 10px;
+}
+
+a.btn {
+  margin-bottom: 10px;
+}
+
+.lead {
+  margin-bottom: 10px;
+}
+
+/* Links */
+a,
+a:focus,
+a:hover {
+ color: #fff;
+}
+
+a:hover > .icon-underline > i {
+  text-decoration: underline;
+  color: #fff;
+  //underlines FontAwesome icons
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+ color: #333;
+ text-shadow: none; /* Prevent inheritence from `body` */
+ background-color: #fff;
+ border: 1px solid #fff;
+}
+
+.nav-dropdown button {
+  background-color: rgba(255, 255, 255, 0);
+  color: #fff;
+  border-radius: 0px;
+}
+
+.nav-dropdown ul {
+  border-radius: 0px;
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.nav-dropdown ul li a{
+  color: #fff;
+  text-shadow: none;
+}
+
+.btn-round {
+  background-color: rgba(255, 255, 255, 0);
+  color: #fff;
+}
+
+.btn-group > .btn {
+  float: none;
+}
+
+.btn-group > .btn-transparent {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.btn-default .badge {
+  color: #333;
+  background-color: #fff;
+}
+
+.btn-default:hover > .badge,
+.btn-default:focus > .badge {
+  color: #fff;
+  background-color: #333;
+}
+
+/*
+* Base structure
+*/
+
+html,
+body {
+ height: 100%;
+ background-color: #333;
+}
+body {
+ color: #fff;
+ text-align: center;
+ text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+ display: table;
+ width: 100%;
+ height: 100%; /* For at least Firefox */
+ min-height: 100%;
+ -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+         box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+}
+.site-wrapper-inner {
+ display: table-cell;
+ vertical-align: top;
+}
+.cover-container {
+ margin-right: auto;
+ margin-left: auto;
+}
+
+.container {
+  padding-top: 80px;
+}
+
+/* Padding for spacing */
+.inner {
+ padding: 30px;
+}
+
+
+/*
+* Header
+*/
+
+.masthead-brand {
+ margin-top: 10px;
+ margin-bottom: 10px;
+}
+.masthead-brand > a {
+ color: rgba(255, 255, 255, 0.5);
+}
+
+.masthead-brand > a:hover,
+.masthead-brand > a:focus {
+ text-decoration: none;
+ color: #fff;
+}
+
+.masthead-nav > li {
+ display: inline-block;
+}
+.masthead-nav > li + li {
+ margin-left: 20px;
+}
+.masthead-nav > li > a {
+ padding-right: 0;
+ padding-left: 0;
+ font-size: 16px;
+ font-weight: bold;
+ color: #fff; /* IE8 proofing */
+ color: rgba(255,255,255,.75);
+ border-bottom: 2px solid transparent;
+}
+.masthead-nav > li > a:hover,
+.masthead-nav > li > a:focus {
+ background-color: transparent;
+ border-bottom-color: #a9a9a9;
+ border-bottom-color: rgba(255,255,255,.25);
+}
+.masthead-nav > .active > a,
+.masthead-nav > .active > a:hover,
+.masthead-nav > .active > a:focus {
+ color: #fff;
+ border-bottom-color: #fff;
+}
+
+@media (min-width: 768px) {
+ .masthead-brand {
+   float: left;
+ }
+ .masthead-nav {
+   float: right;
+ }
+}
+
+
+
+/*
+* Cover
+*/
+
+.cover {
+ padding: 0 20px;
+}
+.cover .btn-lg {
+ padding: 10px 20px;
+ font-weight: bold;
+}
+
+
+/*
+* Footer
+*/
+
+.mastfoot {
+ color: #999; /* IE8 proofing */
+ color: rgba(255,255,255,.5);
+}
+
+
+/*
+* Affix and center
+*/
+
+@media (min-width: 768px) {
+ /* Pull out the header and footer */
+ .masthead {
+   position: absolute;
+   top: 0;
+ }
+ .mastfoot-fixed {
+   position: fixed;
+   bottom: 0;
+ }
+ .mastfoot-relative {
+   position: relative;
+   bottom: 0;
+ }
+ /* Start the vertical centering */
+ .site-wrapper-inner {
+   vertical-align: middle;
+ }
+ /* Handle the widths */
+ .masthead,
+ .mastfoot,
+ .cover-container {
+   width: 100%; /* Must be percentage or pixels for horizontal alignment */
+ }
+}
+
+@media (min-width: 992px) {
+ .masthead,
+ .mastfoot,
+ .cover-container {
+  //  width: 700px;
+ }
+}
+
+/* Form */
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-top {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-mid {
+  margin-bottom: -2px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.form-mid2 {
+  margin-bottom: -3px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.form-bottom {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Combo Selectize */
+.item, .option {
+  text-shadow: none;
+  color: #555555;
+  font-size: 16px;
+  text-align: left;
+}
+
+.selectize-input {
+  margin-bottom: 4px;
+  color: #555555;
+  font-size: 16px;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.selectize-dropdown-content {
+  line-height: 30px;
+}
+
+.option:hover {
+  font-weight: 30px;
+  background: rgba(125, 168, 208, 0.62);
+}
+
+/* Modals */
+.modal-content {
+  background-color: #6C6C6C;
+}
+
+/* Alerts */
+.alert {
+  text-shadow: none;
+  background-color: rgba(242, 222, 222, 0);
+}
+
+.panel {
+  background-color: #6E6E6E;
+  border-width: 4px;
+}

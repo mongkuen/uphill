@@ -1,0 +1,9 @@
+<%= form_tag login_path, class: "form-signin" do %>
+  <%= render 'shared/flash_messages' %>
+  <h2 class="form-signin-heading">Login</h2>
+  <%= label_tag :email, nil, class: "sr-only" %>
+  <%= email_field_tag :email, params[:email], class: "form-control form-top", placeholder: "Email address" %>
+  <%= label_tag :password, nil, class: "sr-only" %>
+  <%= password_field_tag :password, nil, class: "form-control form-bottom", placeholder: "Password" %>
+  <%= submit_tag "Login", class: "btn btn-lg btn-primary btn-block" %>
+<% end %>

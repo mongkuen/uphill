@@ -1,0 +1,51 @@
+<div class="masthead clearfix">
+  <div class="inner">
+    <h3 class="masthead-brand">
+      <%= link_to root_path do %>
+        <i class="fa fa-chevron-circle-up"></i> Uphill
+      <% end %>
+    </h3>
+    <nav>
+      <ul class="nav masthead-nav">
+        <% if logged_in? %>
+          <li class="dropdown nav-dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
+              <% if new_checkin_num > 0 %>
+                <div class="badge" id="new_checkin_badge">
+                  <span id="new_checkin_num"><%= new_checkin_num %></span> New
+                </div>
+              <% end %>
+              <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+              <%= present_name(current_user) %>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1">
+              <!-- <li>
+                <%= link_to user_path(current_user) do %>
+                  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                  <%= present_name(current_user) %>
+                <% end %>
+              </li> -->
+              <li>
+                <%= link_to edit_user_path(current_user), role: "menuitem", tabindex: "-1" do %>
+                  <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                  Edit Profile
+                <% end %>
+              </li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation">
+                <%= link_to "Logout", logout_path, role: "menuitem", tabindex: "-1"  %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li <%= 'class="active"'.html_safe if current_page?(root_path) || current_page?(register_path) %> >
+            <%= link_to "Register", register_path %>
+          </li>
+          <li <%= 'class="active"'.html_safe if current_page?(login_path) %> >
+            <%= link_to "Login", login_path %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</div>

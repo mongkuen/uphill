@@ -1,0 +1,20 @@
+$("#new_<%= @goal.id %>").hide();
+<% if new_checkin_num == 0 %>
+  $("#new_checkin_badge").hide();
+<% else %>
+  $("#new_checkin_num").html("<%= new_checkin_num %>");
+<% end %>
+$("#goal_<%= @goal.id %>_up").addClass("btn-transparent");
+$("#goal_<%= @goal.id %>_none").addClass("btn-transparent");
+$("#goal_<%= @goal.id %>_down").addClass("btn-transparent");
+$("#goal_<%= @goal.id %>_up_num").html("<%= @goal.uphill %>");
+$("#goal_<%= @goal.id %>_none_num").html("<%= display_percentage(@goal) %>");
+$("#goal_<%= @goal.id %>_down_num").html("<%= @goal.downhill %>");
+
+<% if @goal.status? == "up" %>
+  $("#goal_<%= @goal.id %>_up").removeClass("btn-transparent");
+<% elsif @goal.status? == "none" %>
+  $("#goal_<%= @goal.id %>_none").removeClass("btn-transparent");
+<% elsif @goal.status? == "down" %>
+  $("#goal_<%= @goal.id %>_down").removeClass("btn-transparent");
+<% end %>

@@ -1,0 +1,11 @@
+<%= form_tag user_path(current_user), class: "form-signin", method: :delete do %>
+  <h1>Cancel Uphill</h1>
+  <br>
+  <p>Enter your password to delete your account.</p>
+  <p>Are you sure? This cannot be undone.</p>
+  <%= render 'shared/flash_messages' %>
+  <%= label_tag :password, nil, class: "sr-only" %>
+  <%= password_field_tag :password, nil, class: "form-control", placeholder: "Password" %>
+  <br>
+  <%= submit_tag "Delete Permanently", class: "btn btn-lg btn-danger btn-block" %>
+<% end %>

@@ -1,0 +1,26 @@
+<h2 class="form-signin-heading">Edit Summit</h2>
+
+<%= render 'goal_form', goal: @goal %>
+
+<%= link_to "", class: "small text-muted", "data-toggle" => "modal", "data-target" => "#delete_modal" do %>
+  <span class="icon-underline"><i class="fa fa-trash-o"></i></span>
+   Delete this summit
+<% end %>
+
+<div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="Delete Summit" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        <h4 class="modal-title" id="myModalLabel">Delete Summit Forever?</h4>
+      </div>
+      <div class="modal-body">
+        <p>This cannot be undone.</p>
+        <%= form_tag goal_path(@goal), method: :delete do %>
+          <%= submit_tag "Delete Permanently", class: "btn btn-lg btn-danger btn-block" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

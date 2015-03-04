@@ -1,0 +1,13 @@
+<%= form_for goal, html: { class: "form-signin" } do |f| %>
+  <%= render 'shared/errors', object: goal %>
+  <%= render 'shared/flash_messages' %>
+  <%= f.label :title, class: "sr-only" %>
+  <%= f.text_field :title, class: "form-control form-top", placeholder: "Your Goal" %>
+  <%= f.label :body, class: "sr-only" %>
+  <%= f.text_area :body, class: "form-control form-bottom", placeholder: "Goal Description" %>
+  <% if goal.new_record? %>
+    <%= f.label :schedule, class: "sr-only" %>
+    <%= f.select :schedule, options_for_select([["Daily Check-In", "daily"], ["Weekly Check-In", "weekly"], ["Biweekly Check-In", "biweekly"]], goal.schedule) %>
+  <% end %>
+  <%= f.submit(goal.new_record? ? "Start" : "Update", class: "btn btn-lg btn-primary btn-block") %>
+<% end %>

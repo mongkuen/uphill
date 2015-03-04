@@ -1,0 +1,10 @@
+<h1><%= present_name(current_user) %></h1>
+
+total checkins by user
+Checkin.joins(:goal).where('goal.user' == u).count
+
+total uphills by user
+Checkin.joins(:goal).where('goal.user' == u).where(status: "up").count
+
+total downhills by user
+Checkin.joins(:goal).where('goal.user' == u).where(status: "up").count
