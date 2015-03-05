@@ -46,7 +46,7 @@ Rails.application.configure do
   :address   => "smtp.mandrillapp.com",
   :port      => 587,
   :user_name => "mongkuen.sun@gmail.com",
-  :password  => 
+  :password  => "secret"
   }
 
 end
