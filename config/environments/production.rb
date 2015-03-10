@@ -81,6 +81,7 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => 'http://uphill837.herokuapp.com' }
+  config.asset_host = 'http://uphilll837.herokuapp.com'
   config.action_mailer.smtp_settings = {
   :address   => "smtp.mandrillapp.com",
   :port      => 587,
