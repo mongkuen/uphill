@@ -1,5 +1,5 @@
 class CheckinsController < ApplicationController
-  before_action :set_goal
+  before_action :set_goal, except: [:checkin]
   before_action :user_required, except: [:checkin]
   before_action except: [:checkin] do
     deny_access(@goal)
