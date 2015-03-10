@@ -1,6 +1,9 @@
 class GoalsController < ApplicationController
   before_action :user_required
   before_action :set_goal, except: [:index, :new, :create]
+  before_action except: [:index, :new, :create] do
+    deny_access(@goal)
+  end
 
   def index
     @daily_goals = current_user.goals.where(schedule: "daily")
@@ -10,6 +13,7 @@ class GoalsController < ApplicationController
 
   def new
     @goal = Goal.new
+    @goal.notify = true
     render layout: 'centered'
   end
 
@@ -35,7 +39,7 @@ class GoalsController < ApplicationController
 
   def update
     if @goal.update(goal_params)
-      flash[:notice] = "Goal Updated!"
+      flash[:notice] = "Summit Updated!"
     else
       flash[:error] = "Something went wrong. Please try again."
     end
@@ -44,39 +48,25 @@ class GoalsController < ApplicationController
 
   def destroy
     if @goal.destroy
-      flash[:notice] = "Goal deleted."
+      flash[:notice] = "Summit deleted."
       redirect_to root_path
     else
       redirect edit_goal_path(@goal)
     end
   end
 
-  def checkin
-    if ["up", "down", "none"].include?(params[:checkin])
-      @checkin = @goal.checkins.last
-      @checkin.update(status: params[:checkin])
-
-      respond_to do |format|
-        format.html do
-          flash[:notice] = "Check-In Logged!"
-          redirect_to root_path
-        end
-        format.js
-      end
-
+  private
+  def set_goal
+    if Goal.exists?(params[:id])
+      @goal = Goal.find(params[:id])
     else
-      flash[:error] = "That's not allowed."
+      flash[:error] = "That summit doesn't exist!"
       redirect_to root_path
     end
   end
 
-  private
-  def set_goal
-    @goal = Goal.find(params[:id])
-  end
-
   def goal_params
-    params.require(:goal).permit(:body, :title, :schedule)
+    params.require(:goal).permit(:body, :title, :schedule, :notify)
   end
 
 end

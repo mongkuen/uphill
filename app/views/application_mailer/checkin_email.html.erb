@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Welcome Uphill</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    table.start-button:hover td {
+      background: #FFFFFF !important;
+    }
+    table.start-button:hover a {
+      color: #333 !important;
+      text-shadow: none !important;
+    }
+    table.complete-button:hover td {
+      background: #5cb85c !important;
+    }
+    table.midground-button:hover td {
+      background: #5bc0de !important;
+    }
+    table.incomplete-button:hover td {
+      background: #ec971f !important;
+    }
+  </style>
+</head>
+<body style="margin: 0; padding: 0;">
+ <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td style="padding: 20px 0 30px 0;">
+     <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 4px solid #337ab7; border-collapse: collapse;">
+       <tr>
+         <td align="center" bgcolor="#337ab7" style="padding: 40px 0 10px 0;">
+           <%= image_tag "uphill.svg", height: '50', width: '50' %>
+         </td>
+       </tr>
+       <tr>
+         <td bgcolor="#337ab7" align="center" style="padding: 0px 0 20px 0; color: #FFFFFF; font-family: Arial, sans-serif; font-size: 24px; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);">
+           <b><%= @checkin.goal.schedule.titleize %> Check-In:</b>
+         </td>
+       </tr>
+       <tr>
+         <td bgcolor="#6E6E6E" style="padding: 40px 30px 40px 30px;">
+           <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+              <td align="center" style="color: #FFFFFF; font-family: Arial, sans-serif; font-size: 24px; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);">
+                <b><%= @checkin.goal.title.titleize %>:</b>
+              </td>
+            </tr>
+            <tr>
+             <td align="center" style="color: #FFFFFF; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px; padding: 20px 0 40px 0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);">
+               <%= @checkin.goal.body.titleize %><br/>
+             </td>
+            </tr>
+            <tr>
+             <td align="center" style="padding: 0px 0 10px 0;">
+               <table border="0" cellpadding="0" cellspacing="0" width="20%">
+                 <tr>
+                   <td align="center" style="border: 1px solid #FFFFFF; border-collapse: collapse; color: #FFFFFF; font-family: Arial, sans-serif; font-size: 19px; line-height: 20px; padding: 15px 0 15px 0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);">
+                     <%= ApplicationController.helpers.display_day_of(@checkin.created_at) %>:<br><%= ApplicationController.helpers.display_percentage(@checkin.goal) %><br>
+                   </td>
+                 </tr>
+               </table>
+             </td>
+            </tr>
+            <tr>
+             <td align="center" style="padding: 0px 0 10px 0;">
+               <table border="0" cellpadding="0" cellspacing="0" width="30%" class="complete-button">
+                 <tr>
+                   <td align="center" style="border: 1px solid #4cae4c; border-collapse: collapse; color: #FFFFFF; font-family: Arial, sans-serif; font-size: 19px; line-height: 20px; padding: 15px 0 15px 0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);">
+                     <%= image_tag "complete.svg", height: '20px' %>
+                     <%= link_to 'Complete', checkin_url(t: @checkin.token, v: "up"), {style: "color: #FFFFFF; text-decoration: none;"} %>
+                   </td>
+                 </tr>
+               </table>
+             </td>
+            </tr>
+            <tr>
+             <td align="center" style="padding: 0px 0 10px 0;">
+               <table border="0" cellpadding="0" cellspacing="0" width="30%" class="midground-button">
+                 <tr>
+                   <td align="center" style="border: 1px solid #46b8da; border-collapse: collapse; color: #FFFFFF; font-family: Arial, sans-serif; font-size: 19px; line-height: 20px; padding: 15px 0 15px 0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);">
+                     <%= image_tag "midground.svg", height: '20px' %>
+                     <%= link_to 'Midground', checkin_url(t: @checkin.token, v: "none"), {style: "color: #FFFFFF; text-decoration: none;"} %>
+                   </td>
+                 </tr>
+               </table>
+             </td>
+            </tr>
+            <tr>
+             <td align="center" style="padding: 0px 0 10px 0;">
+               <table border="0" cellpadding="0" cellspacing="0" width="30%" class="incomplete-button">
+                 <tr>
+                   <td align="center" style="border: 1px solid #eea236; border-collapse: collapse; color: #FFFFFF; font-family: Arial, sans-serif; font-size: 19px; line-height: 20px; padding: 15px 0 15px 0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);">
+                     <%= image_tag "incomplete.svg", height: '20px' %>
+                     <%= link_to 'Incomplete', checkin_url(t: @checkin.token, v: "down"), {style: "color: #FFFFFF; text-decoration: none;"} %>
+                   </td>
+                 </tr>
+               </table>
+             </td>
+            </tr>
+           </table>
+         </td>
+       </tr>
+       <tr>
+         <td bgcolor="#337ab7" style="padding: 30px 30px 30px 30px;">
+           <table border="0" cellpadding="0" cellspacing="0" width="100%">
+             <td align="center" style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);">
+               Uphill &middot; &copy; <%= "#{Time.now.year}" %><br/><br/>
+               <%= link_to 'Email preferences', login_url, {style: "color: rgba(255, 255, 255, 0.4); font-size: 12px;"} %>
+             </td>
+           </table>
+         </td>
+       </tr>
+     </table>
+   </td>
+  </tr>
+ </table>
+</body>
+</html>

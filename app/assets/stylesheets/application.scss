@@ -11,7 +11,8 @@
 * file per style scope.
 *
 *= require selectize
- *= require selectize.default
+*= require selectize.default
+*= require bootstrap3-switch
 *= require_tree .
 *= require_self
 */
@@ -272,6 +273,10 @@ body {
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;
+}
+.bootstrap-switch {
+  margin-bottom: 10px;
+  border: 0px;
 }
 .form-signin .checkbox {
   font-weight: normal;

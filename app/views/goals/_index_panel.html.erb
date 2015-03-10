@@ -16,27 +16,39 @@
           <% end %>
         </div>
         <div class="btn-group btn-group btn-group-lg lead" role="group">
-          <%= link_to checkin_goal_path(goal, checkin: "up"), type: "button", id: "goal_#{goal.id}_up", class: "btn btn-success #{'btn-transparent' if goal.status? != "up"}", method: "post", remote: true do %>
-            <i class="fa fa-chevron-up"></i> <span id="goal_<%= goal.id %>_up_num"><%= goal.uphill %></span>
+
+          <%= link_to checkin_goal_path(goal, checkin: "down"), type: "button", id: "goal_#{goal.id}_down", class: "btn btn-warning #{'btn-transparent' if goal.status? != "down"}", method: "post", remote: true do %>
+            <span id="goal_<%= goal.id %>_down_num"><%= goal.downhill %></span> <i class="fa fa-chevron-down"></i>
           <% end %>
+
           <%= link_to checkin_goal_path(goal, checkin: "none"), type: "button", id: "goal_#{goal.id}_none", class: "btn btn-info #{'btn-transparent' if goal.status? != "none"}", method: "post", remote: true do %>
             <h3>
               <span id="goal_<%= goal.id %>_none_num"><%= display_percentage(goal) %></span>
             </h3>
             <i class="fa fa-minus-square-o"></i>
           <% end %>
-          <%= link_to checkin_goal_path(goal, checkin: "down"), type: "button", id: "goal_#{goal.id}_down", class: "btn btn-warning #{'btn-transparent' if goal.status? != "down"}", method: "post", remote: true do %>
-            <span id="goal_<%= goal.id %>_down_num"><%= goal.downhill %></span> <i class="fa fa-chevron-down"></i>
+
+          <%= link_to checkin_goal_path(goal, checkin: "up"), type: "button", id: "goal_#{goal.id}_up", class: "btn btn-success #{'btn-transparent' if goal.status? != "up"}", method: "post", remote: true do %>
+            <i class="fa fa-chevron-up"></i> <span id="goal_<%= goal.id %>_up_num"><%= goal.uphill %></span>
           <% end %>
+
         </div>
         <div class="row">
-          <div class="col-md-4" data-toggle="tooltip" data-placement="bottom" title="Started <%= display_date(goal.created_at) %>">
-            <p>Since <%= time_ago_in_words(goal.created_at) %> ago</p>
+
+          <div class="col-md-4" data-toggle="tooltip" data-placement="bottom" title="Since <%= time_ago_in_words(goal.created_at) %> ago">
+            <p><span id= "goal_<%= goal.id %>_total_checkins_num"><%= goal.total_checkins %></span> Check-Ins total</p>
           </div>
-          <div class="col-md-4" data-toggle="tooltip" data-placement="bottom" title="<%= goal.total_checkins %> check-ins total">
+
+          <div class="col-md-4" data-toggle="tooltip" data-placement="bottom" title="Started <%= display_date(goal.created_at) %>">
             <p><%= display_checkin(goal) %></p>
           </div>
+
           <div class="col-md-4">
+            <% if goal.notify %>
+              <%= link_to edit_goal_path(goal), class: "btn btn-sm btn-round" do %>
+                <i class="fa fa-envelope-o"></i>
+              <% end %>
+            <% end %>
             <%= link_to edit_goal_path(goal), class: "btn btn-sm btn-default btn-round" do %>
                 <i class="fa fa-cog"></i> Edit
             <% end %>

@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def display_date(datetime)
-    datetime.strftime("%b %dth, %Y")
+    datetime.strftime("%b #{datetime.day.ordinalize}, %Y")
   end
 
   def display_short_date(datetime)
@@ -12,7 +12,7 @@ module ApplicationHelper
   end
 
   def display_day_of(datetime)
-    datetime.strftime("%b %dth")
+    datetime.strftime("%b #{datetime.day.ordinalize}")
   end
 
   def display_percentage(goal)
@@ -26,11 +26,11 @@ module ApplicationHelper
 
   def display_checkin(goal)
     if goal.schedule == "daily"
-      "For day: " + display_day_of(goal.checkins.last.created_at)
+      "Day of: " + display_day_of(goal.checkins.last.created_at)
     elsif goal.schedule == "weekly"
-      "For week: " + display_day_of(goal.checkins.last.created_at)
+      "Week of: " + display_day_of(goal.checkins.last.created_at)
     else
-      "For bi-week: " + display_day_of(goal.checkins.last.created_at)
+      "Biweek of: " + display_day_of(goal.checkins.last.created_at)
     end
   end
 
@@ -40,7 +40,6 @@ module ApplicationHelper
 
   def new_checkin_num
     current_user.checkins.where(status: nil).count
-    # Checkin.joins(:goal).where('goal.user' == current_user).where(status: nil).count
   end
 
 end

@@ -1,0 +1,11 @@
+<%= @checkin.goal.schedule.titleize %> Check-In:
+=======================
+<%= @checkin.goal.title %>: <%= @checkin.goal.body %>
+
+<%= ApplicationController.helpers.display_day_of(@checkin.created_at) %>: <%= ApplicationController.helpers.display_percentage(@checkin.goal) %>
+
+Complete: <%= url_for checkin_url(t: @checkin.token, v: "up") %>
+Midground: <%= url_for checkin_url(t: @checkin.token, v: "none") %>
+Incomplete: <%= url_for checkin_url(t: @checkin.token, v: "down") %>
+
+Uphill, <%= "#{Time.now.year}" %>

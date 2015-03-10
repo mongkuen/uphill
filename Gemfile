@@ -32,18 +32,20 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap-sass', '~> 3.3.3'
+gem 'bootstrap-switch-rails'
 gem 'autoprefixer-rails'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'font-awesome-sass'
 gem "selectize-rails"
 gem 'jquery-turbolinks'
+gem 'figaro'
 gem 'chartkick'
 gem 'groupdate'
+gem 'pg'
 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'sqlite3'
   gem 'byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -55,6 +57,5 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end

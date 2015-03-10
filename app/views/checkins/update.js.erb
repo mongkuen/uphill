@@ -10,6 +10,7 @@ $("#goal_<%= @goal.id %>_down").addClass("btn-transparent");
 $("#goal_<%= @goal.id %>_up_num").html("<%= @goal.uphill %>");
 $("#goal_<%= @goal.id %>_none_num").html("<%= display_percentage(@goal) %>");
 $("#goal_<%= @goal.id %>_down_num").html("<%= @goal.downhill %>");
+$("#goal_<%= @goal.id %>_total_checkins_num").html("<%= @goal.total_checkins %>")
 
 <% if @goal.status? == "up" %>
   $("#goal_<%= @goal.id %>_up").removeClass("btn-transparent");

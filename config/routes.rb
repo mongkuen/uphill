@@ -14,9 +14,11 @@ Rails.application.routes.draw do
   end
   resources :goals, except: [:show] do #IMPLEMENT SHOW LATER
     member do
-      post "checkin"
+      post "checkin", to: 'checkins#update'
     end
   end
+
+  get '/checkin', to: 'checkins#checkin'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

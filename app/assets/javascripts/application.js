@@ -14,6 +14,7 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require bootstrap-switch
 //= require jquery_ujs
 //= require turbolinks
 //= require selectize
@@ -21,3 +22,7 @@
 
 $(document).ready(function(){$('select').selectize();});
 $(document).ready(function (){$('[data-toggle="tooltip"]').tooltip();});
+$(document).ready(function(){$("#switch").bootstrapSwitch();});
+$.fn.bootstrapSwitch.defaults.size = 'small';
+$.fn.bootstrapSwitch.defaults.onText = '<i class="fa fa-envelope-o"></i>';
+$.fn.bootstrapSwitch.defaults.offText = 'Email Off';

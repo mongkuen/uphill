@@ -9,5 +9,7 @@
     <%= f.label :schedule, class: "sr-only" %>
     <%= f.select :schedule, options_for_select([["Daily Check-In", "daily"], ["Weekly Check-In", "weekly"], ["Biweekly Check-In", "biweekly"]], goal.schedule) %>
   <% end %>
+  <%= f.label :notify, class: "sr-only" %>
+  <%= f.check_box :notify, {id: "switch"} %>
   <%= f.submit(goal.new_record? ? "Start" : "Update", class: "btn btn-lg btn-primary btn-block") %>
 <% end %>

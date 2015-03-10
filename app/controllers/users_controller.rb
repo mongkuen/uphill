@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
+      flash[:notice] = "It's empty here! Start a new summit for yourself!"
       redirect_to goals_path
     else
       render :new, layout: 'centered'

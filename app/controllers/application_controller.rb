@@ -26,9 +26,13 @@ class ApplicationController < ActionController::Base
 
   def deny_access(obj)
     if !belongs_to_current_user?(obj)
-      flash[:error] = "Something went wrong. Please try again."
+      flash[:error] = "That summit doesn't exist!"
       redirect_to root_path
     end
+  end
+
+  def redirect_if_logged_in
+    redirect_to root_path if session[:user_id]
   end
 
 end

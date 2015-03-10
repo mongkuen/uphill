@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :password, length: {minimum: 5}, confirmation: true, on: :create
 
   after_commit(on: :create) do
-    WelcomeMailer.welcome_email(self).deliver_now
+    ApplicationMailer.registration_email(self).deliver_later
   end
 
 end
