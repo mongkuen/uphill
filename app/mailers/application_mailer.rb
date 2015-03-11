@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "noreply@uphill.com"
+  default from: "noreply@uphill.io"
 
   def registration_email(user)
     @user = user

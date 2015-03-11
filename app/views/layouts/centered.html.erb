@@ -14,8 +14,8 @@
 
     <%= render 'layouts/nav' %>
 
-    <div class="site-wrapper">
-      <div class="site-wrapper-inner">
+    <div class="site-wrapper <%= @class_wrapper if @class_wrapper %>">
+      <div class="site-wrapper-inner <%= @class_inner_wrapper if @class_inner_wrapper %>">
         <div class="cover-container">
           <%= yield %>
         </div>

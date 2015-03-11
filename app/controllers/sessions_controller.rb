@@ -2,6 +2,8 @@ class SessionsController < ApplicationController
   before_action :redirect_if_logged_in, except: [:destroy]
 
   def new
+    @class_wrapper = 'with-background'
+    @class_inner_wrapper = 'inner-with-background'
     render layout: 'centered'
   end
 
