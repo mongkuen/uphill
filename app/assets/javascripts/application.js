@@ -25,4 +25,4 @@ $(document).ready(function (){$('[data-toggle="tooltip"]').tooltip();});
 $(document).ready(function(){$("#switch").bootstrapSwitch();});
 $.fn.bootstrapSwitch.defaults.size = 'small';
 $.fn.bootstrapSwitch.defaults.onText = '<i class="fa fa-envelope-o"></i>';
-$.fn.bootstrapSwitch.defaults.offText = 'Email Off';
+$.fn.bootstrapSwitch.defaults.offText = 'Off';
