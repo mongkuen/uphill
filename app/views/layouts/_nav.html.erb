@@ -8,6 +8,7 @@
     <nav>
       <ul class="nav masthead-nav">
         <% if logged_in? %>
+
           <li class="dropdown nav-dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
               <% if new_checkin_num > 0 %>
@@ -37,13 +38,16 @@
               </li>
             </ul>
           </li>
+          
         <% else %>
+
           <li <%= 'class="active"'.html_safe if current_page?(root_path) || current_page?(register_path) %> >
             <%= link_to "Register", register_path %>
           </li>
           <li <%= 'class="active"'.html_safe if current_page?(login_path) %> >
             <%= link_to "Login", login_path %>
           </li>
+
         <% end %>
       </ul>
     </nav>
