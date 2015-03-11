@@ -8,7 +8,7 @@
           <h3><%= goal.title.titleize %></h3>
         </div>
         <div class="panel-body">
-          <p class="lead"><%= goal.body %></p>
+          <p class="lead"><%= goal.body.humanize %></p>
           <% if new_checkin?(goal) %>
             <span id="new_<%= goal.id %>" class="badge btn-default">
               New Check-In!
