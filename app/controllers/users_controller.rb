@@ -17,6 +17,8 @@ class UsersController < ApplicationController
       flash[:notice] = "It's empty here! Start a new summit for yourself!"
       redirect_to goals_path
     else
+      @class_wrapper = 'with-background'
+      @class_inner_wrapper = 'inner-with-background'
       render :new, layout: 'centered'
     end
   end

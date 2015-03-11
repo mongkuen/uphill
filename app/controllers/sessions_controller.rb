@@ -15,6 +15,8 @@ class SessionsController < ApplicationController
       redirect_to goals_path
     else
       flash.now[:error] = "Login incorrect."
+      @class_wrapper = 'with-background'
+      @class_inner_wrapper = 'inner-with-background'
       render :new, layout: 'centered'
     end
   end
