@@ -11,7 +11,7 @@
 
           <li class="dropdown nav-dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
-              <% if new_checkin_num > 0 %>
+              <% if false %>
                 <div class="badge" id="new_checkin_badge">
                   <span id="new_checkin_num"><%= new_checkin_num %></span> New
                 </div>
@@ -38,7 +38,7 @@
               </li>
             </ul>
           </li>
-          
+
         <% else %>
 
           <li <%= 'class="active"'.html_safe if current_page?(root_path) || current_page?(register_path) %> >
